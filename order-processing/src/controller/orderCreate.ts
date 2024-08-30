@@ -38,7 +38,7 @@ export const createOrder = async (req: Request, res: Response) => {
 
 
         const queue = "orderQueue"
-        const message = JSON.stringify({order_id,user_id})
+        const message = JSON.stringify({order_id,user_id,total_price,status})
         sendMessage(queue,message)
     } catch (error) {
         console.error("Error creating order:", error);

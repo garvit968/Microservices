@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import sequelize from "../config/dbConfig";
 
-const Orders = sequelize.define('Orders',{
+const Fulfillments = sequelize.define('Fulfillments',{
     order_id:{
         type: DataTypes.STRING,
         allowNull: false,
@@ -19,16 +19,19 @@ const Orders = sequelize.define('Orders',{
         allowNull: false,
         unique: false,
     },
-    total_price:{
-        type: DataTypes.INTEGER,
+    shipment_id:{
+        type: DataTypes.STRING,
         allowNull: false,
-        unique: false
     },
     status:{
-        type: DataTypes.BOOLEAN,
+        type: DataTypes.STRING,
         allowNull:false,
         unique: false
+    },
+    payment_id:{
+        type: DataTypes.STRING,
+        allowNull: false
     }
 })
 
-export default Orders
+export default Fulfillments

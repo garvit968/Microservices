@@ -1,10 +1,6 @@
 import express from 'express'
-import globalRoutes from './routes/globalRoutes'
+import sequelize from './config/dbConfig';
 const app = express()
-import sequelize from './config/dbConfig'
-import bodyParser from 'body-parser'
-
-require('dotenv').config()
 
 sequelize.authenticate()
 .then(() => {
@@ -21,9 +17,9 @@ sequelize.sync().then(() => {
 
 app.use(express.json()); 
 
-app.use('/api/v1',globalRoutes)
+// app.use('/api/v1',globalRoutes)
 
-const PORT = 4000
+const PORT = 5000
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
   });
